@@ -1,14 +1,9 @@
 #!/usr/bin/python python3
-
-#print("hello world")
-
-
 import random
 
 
 aArray1 = []
 iRotation = 0
-
 
 
 def PopulateArray():
@@ -64,12 +59,10 @@ def RotateElements(A, K):
         iRotation = (iRotation - iArrayLength)
 
 
-
     #grab last element:value of the array
     #append it as the First value in a new array
     #pop the last value in the first array
     #iterate until rot complete
-
     while iCount < iRotation:
         iTemp = aArray1[-1:]
 #        print("iTemp is: %s" % iTemp)
@@ -92,7 +85,6 @@ def RotateElements(A, K):
 
 if __name__ == '__main__':
 
-#    aArray1 = []
     aArray2 = []
     iRotation = input("Enter number of array rotations to perform: ")
     aArray1 = PopulateArray()
