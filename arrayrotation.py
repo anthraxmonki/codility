@@ -36,7 +36,17 @@ def RotateElements(A, K):
 
     iArrayLength = len(aArray1)
 
-#    print("iRotation is: %d" % iRotation)
+
+    if int(iArrayLength) == 0:
+ #       print("Array is empty. Return original array.")
+        return A
+
+
+    if iRotation >= iArrayLength:
+        while iRotation >= iArrayLength:
+            iRotation = iRotation - iArrayLength
+
+#    print("New rotation to perform is: %d" % iRotation)
 #    print("Array length is: %d" % iArrayLength)
 
     #if our array length == our rotation
@@ -44,10 +54,7 @@ def RotateElements(A, K):
     #    if you rotate the alphabet 26 times, it's jsut the alphabet
     #if our rotation is longer than our actual array
     #the rotation - array length == full rotation
-    if int(iArrayLength) == 0:
-#        print("Array is empty. Return original array.")
-        return A
-    elif int(iArrayLength) == 1:
+    if int(iArrayLength) == 1:
 #        print("Array has only one element, nothing to rotate. Return original array")
         return A
     elif int(iArrayLength) == int(iRotation):
@@ -55,35 +62,6 @@ def RotateElements(A, K):
         return A
     elif iArrayLength < iRotation:
         iRotation = (iRotation - iArrayLength)
-
-
-#87%
-#
-#small2
-#small functional tests, K >= N
-#
-#We've already accounted for K (rotation) > iArrayLength
-#    K - len(a) == what we can actually rotate
-#    it's line 56 above.
-#    if the len(A) == K (rotation)   then we return the original array
-#    line 53
-#
-#stderr:
-#    Traceback (most recent call last):
-#    File "exec.py", line 145, in <module>
-#    main()
-
-#    File "exec.py", line 107, in main
-#    result = solution( A, K )
-
-#    File "/tmp/solution.py", line 47, in solution
-#    aArray2.insert(0, iTemp[0])
-#    IndexError: list index out of range
-#
-#
-#I don't think the Codility test should be failing
-#for a K (rot) > len(A)
-
 
 
 
@@ -94,7 +72,7 @@ def RotateElements(A, K):
 
     while iCount < iRotation:
         iTemp = aArray1[-1:]
-#        print("iTemp is: %s" % iTemp) 
+#        print("iTemp is: %s" % iTemp)
         aArray2.insert(0, iTemp[0])
         aArray1.pop()
         iCount += 1
@@ -122,7 +100,3 @@ if __name__ == '__main__':
     print("Array before rotation: " + str(aArray1) )
     aArray2 = RotateElements(aArray1, iRotation)
     print(aArray2)
-
-
-
-
